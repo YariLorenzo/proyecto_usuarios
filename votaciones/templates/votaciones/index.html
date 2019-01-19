@@ -1,0 +1,59 @@
+{% extends 'votaciones/base.html' %}
+{% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+
+                <table class="table table-hover table-bordered results">
+                        <thead>
+                          <tr>
+                            <th class="col-md-1 col-xs-1">FECHA</th>
+                            <th class="col-md-2 col-xs-2">CATEGORIA</th>
+                            <th class="col-md-5 col-xs-5">DESCRIPCION</th>
+                            <th class="col-md-2 col-xs-2">% VOTO </th>
+                            <th class="col-md-2 col-xs-3">VER DETALLE</th>
+                          </tr>
+                          <tr class="warning no-result">
+                            <td colspan="4"><i class="fa fa-warning"></i> No hay resultados</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for evento in lista_ult_eventos %}
+                            <tr>
+                                <td>{{evento.fecha|date:"SHORT_DATE_FORMAT"}}</td>
+                                <td>{{evento.get_categoria_display }}</td>
+                                <td>{{evento.nombre}}</td>
+                                <td> {{evento.votantes.count}}</td>
+                                <td><a href="/votaciones/evento/{{evento.id }}/" class="btn btn-info" role="button">Detalle</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+            <!-- {% if lista_ult_eventos %}
+                <ul>
+                    {% for evento in lista_ult_eventos %}
+                        <li><a href="/votaciones/{{evento.id }}/">{{ evento }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay eventos disponibles.</p>
+            {% endif %} -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- {% if lista_ult_eventos %}
+    <ul>
+    {% for evento in lista_ult_eventos %}
+        <li><a href="/votaciones/{{evento.id }}/">{{ evento }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay eventos disponibles.</p>
+{% endif %} -->
+
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'votaciones/base.html' %}
+{% block content %}
+<div class="content container">
+        <div class="row">
+            <div class="col-md-3 ">
+                 <div class="list-group ">
+                  <a href="#" class="list-group-item list-group-item-action active">Información</a>
+                  <!-- <a href="#" class="list-group-item list-group-item-action">User Management</a>
+                  <a href="#" class="list-group-item list-group-item-action">Used</a>
+                  <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
+                  <a href="#" class="list-group-item list-group-item-action">Dealer</a>
+                  <a href="#" class="list-group-item list-group-item-action">Media</a>
+                  <a href="#" class="list-group-item list-group-item-action">Post</a>
+                  <a href="#" class="list-group-item list-group-item-action">Category</a>
+                  <a href="#" class="list-group-item list-group-item-action">New</a>
+                  <a href="#" class="list-group-item list-group-item-action">Comments</a>
+                  <a href="#" class="list-group-item list-group-item-action">Appearance</a>
+                  <a href="#" class="list-group-item list-group-item-action">Reports</a>
+                  <a href="#" class="list-group-item list-group-item-action">Settings</a> -->
+                  
+                  
+                </div> 
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Perfil</h4>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form>
+                                  <!-- <div class="form-group row">
+                                    <label for="username" class="col-4 col-form-label">User Name*</label> 
+                                    <div class="col-8">
+                                      <input id="username" name="username" placeholder="Username" class="form-control here" required="required" type="text">
+                                    </div>
+                                  </div> -->
+                                  <div class="form-group row">
+                                    <label for="nombre" class="col-4 col-form-label">Nombre</label> 
+                                    <div class="col-8">
+                                      <input id="nombre" name="nombre" placeholder="Nombre" class="form-control here" type="text" value="{{usuario.nombre}}">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="apellidos" class="col-4 col-form-label">Apellido1</label> 
+                                    <div class="col-8">
+                                      <input id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control here" type="text" value="{{usuario.apellido1}}">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="localidad" class="col-4 col-form-label">Apellido2</label> 
+                                    <div class="col-8">
+                                      <input id="localidad" name="localidad" placeholder="Localidad" class="form-control here" type="text" value="{{usuario.apellido2}}">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="text" class="col-4 col-form-label">Localidad</label> 
+                                    <div class="col-8">
+                                      <input id="text" name="text" placeholder="Localidad" class="form-control here" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="text" class="col-4 col-form-label">Domicilio</label> 
+                                    <div class="col-8">
+                                      <input id="text" name="text" placeholder="Domicilio" class="form-control here" type="text">
+                                    </div>
+                                  </div>
+                                  <!-- <div class="form-group row">
+                                    <label for="select" class="col-4 col-form-label">Display Name public as</label> 
+                                    <div class="col-8">
+                                      <select id="select" name="select" class="custom-select">
+                                        <option value="admin">Admin</option>
+                                      </select>
+                                    </div>
+                                  </div> -->
+                                  <div class="form-group row">
+                                    <label for="email" class="col-4 col-form-label">Email</label> 
+                                    <div class="col-8">
+                                      <input id="email" name="email" placeholder="Email" class="form-control here" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="telefono" class="col-4 col-form-label">Teléfono</label> 
+                                    <div class="col-8">
+                                      <input id="telefono" name="telefono" placeholder="telefono" class="form-control here" type="text">
+                                    </div>
+                                  </div>
+                                  <!-- <div class="form-group row">
+                                    <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
+                                    <div class="col-8">
+                                      <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
+                                    </div>
+                                  </div> -->
+                                  <!-- <div class="form-group row">
+                                    <label for="newpass" class="col-4 col-form-label">New Password</label> 
+                                    <div class="col-8">
+                                      <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
+                                    </div>
+                                  </div>  -->
+                                  <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                      <button name="submit" type="submit" class="btn btn-primary">Actualizar perfil</button>
+                                    </div>
+                                  </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- {% if lista_ult_eventos %}
+    <ul>
+    {% for evento in lista_ult_eventos %}
+        <li><a href="/votaciones/{{evento.id }}/">{{ evento }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay eventos disponibles.</p>
+{% endif %} -->
+
+{% endblock %}
