@@ -8,3 +8,4 @@ class UsuarioForm(forms.ModelForm):
         model = Usuario
         # fields = ('nombre', 'apellido1',)
         fields = '__all__'
+        # exclude = ('created_by',)
