@@ -2,6 +2,8 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 from. models import Evento, Usuario
@@ -47,6 +49,7 @@ def usuario_new(request):
         form = UsuarioForm()
     return render(request, 'votaciones/usuario_edit.html', {'form': form})
 
+# @login_required
 def usuario_edit(request, usuario_id):
     usuario = get_object_or_404(Usuario, pk=usuario_id)
     if request.method == "POST":
@@ -54,6 +57,7 @@ def usuario_edit(request, usuario_id):
         if form.is_valid():
             usuario = form.save(commit=False)
             usuario.save()
+            messages.success(request, 'Form submission successful')
             return redirect('usuario_detail', usuario_id=usuario.id)
     else:
         form = UsuarioForm(instance=usuario)

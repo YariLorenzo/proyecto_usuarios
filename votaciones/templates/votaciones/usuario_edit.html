@@ -1,10 +1,120 @@
 {% extends 'votaciones/base.html' %}
 
 {% block content %}
+<div class="content container">
+        <div class="row">
+            <div class="col-md-3 ">
+                 <div class="list-group ">
+                  <a href="#" class="list-group-item list-group-item-action active">Información</a>
+                  <!-- <a href="#" class="list-group-item list-group-item-action">User Management</a>
+                  <a href="#" class="list-group-item list-group-item-action">Used</a>
+                  <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
+                  <a href="#" class="list-group-item list-group-item-action">Dealer</a>
+                  <a href="#" class="list-group-item list-group-item-action">Media</a>
+                  <a href="#" class="list-group-item list-group-item-action">Post</a>
+                  <a href="#" class="list-group-item list-group-item-action">Category</a>
+                  <a href="#" class="list-group-item list-group-item-action">New</a>
+                  <a href="#" class="list-group-item list-group-item-action">Comments</a>
+                  <a href="#" class="list-group-item list-group-item-action">Appearance</a>
+                  <a href="#" class="list-group-item list-group-item-action">Reports</a>
+                  <a href="#" class="list-group-item list-group-item-action">Settings</a> -->
+                  
+                  
+                </div> 
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Perfil</h4>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form method="POST" class="post-form">{% csrf_token %}
+                                    <div class="form-group row">
+                                        <label for="id_dni" class="col-4 col-form-label">DNI</label> 
+                                        <div class="col-8">
+                                            <input id="id_dni" type="text" name="dni" class="form-control here" value="{{usuario.dni}}" />
+                                        </div>
+                                      </div>
+                                  <div class="form-group row">
+                                    <label for="id_nombre" class="col-4 col-form-label">Nombre</label> 
+                                    <div class="col-8">
+                                        <input id="id_nombre" type="text" name="nombre" class="form-control here" value="{{usuario.nombre}}" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="id_apellido1" class="col-4 col-form-label">Apellido1</label> 
+                                    <div class="col-8">
+                                        <input id="id_apellido1" type="text" name="apellido1" class="form-control here" value="{{usuario.apellido1}}" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="id_apellido2" class="col-4 col-form-label">Apellido2</label> 
+                                    <div class="col-8">
+                                        <input id="id_apellido2" type="text" name="apellido2" class="form-control here" value="{{usuario.apellido2}}" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                        <label for="id_fecha_nac" class="col-4 col-form-label">Fecha Nacimiento</label> 
+                                        <div class="col-8">
+                                            <input id="id_fecha_nac" type="date" name="fecha_nac" class="form-control here" value="{{usuario.fecha_nac}}" />
+                                        </div>
+                                      </div>
+                                  <div class="form-group row">
+                                    <label for="id_municipio" class="col-4 col-form-label">Municipio</label> 
+                                    <div class="col-8">
+                                      <input id="id_municipio" type="text" name="municipio" class="form-control here" value="{{usuario.municipio}}" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="text" class="col-4 col-form-label">Domicilio</label> 
+                                    <div class="col-8">
+                                      <input id="id_domicilio" type="text" name="domicilio" class="form-control here" value="{{usuario.domicilio}}" />
+                                    </div>
+                                  </div>
 
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Guardar</button>
-    </form>
+                                  <div class="form-group row">
+                                    <label for="email" class="col-4 col-form-label">Email</label> 
+                                    <div class="col-8">
+                                      <input id="id_email" type="text" name="email" class="form-control here" value="{{usuario.email}}" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="telefono" class="col-4 col-form-label">Teléfono</label> 
+                                    <div class="col-8">
+                                      <input id="id_telefono" type="text" name="telefono" class="form-control here" value="{{usuario.telefono}}" />
+                                    </div>
+                                  </div>
+                                  <!-- <div class="form-group row">
+                                    <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
+                                    <div class="col-8">
+                                      <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
+                                    </div>
+                                  </div> -->
+                                  <!-- <div class="form-group row">
+                                    <label for="newpass" class="col-4 col-form-label">New Password</label> 
+                                    <div class="col-8">
+                                      <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
+                                    </div>
+                                  </div>  -->
+                                  <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                      <!-- <button type="submit" class="save btn btn-default">Guardar</button> -->
+                                      <input type="submit"  class="save btn btn-default" value = "Guardar"onclick="return confirm('¿Estás seguro?')" />
+                                    </div>
+                                  </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 {% endblock %}
