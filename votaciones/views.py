@@ -33,11 +33,15 @@ def usuario(request, usuario_id):
     return render(request, 'votaciones/usuario.html', {'usuario': usuario})
 
 def usuario_detail(request, usuario_id):
-    print ('FPUTEEEEEHHHH')
+    
     usuario = get_object_or_404(Usuario, pk=usuario_id)
+    # lista_votaciones = Evento.objects.filter(votantes= usuario_id)
+    lista_eventos = Evento.objects.order_by('-fecha')
     print(usuario)
-    return render(request, 'votaciones/usuario_detail.html', {'usuario': usuario})
-
+    print(lista_eventos)
+    return render(request, 'votaciones/usuario_detail.html', {'usuario': usuario, 
+                                                            'lista_eventos': lista_eventos})
+    
 def usuario_new(request):
     if request.method == "POST":
         form = UsuarioForm(request.POST)

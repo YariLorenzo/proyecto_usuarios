@@ -40,3 +40,8 @@ body{
 
 /* tr:nth-child(even) {background: rgb(255, 255, 255)}
 tr:nth-child(odd) {background: #c0c0c0} */
+
+/* OCULTAR CAPAS EN USUARIO DETALLES */
+/* .hidden {
+  display:none;
+} */

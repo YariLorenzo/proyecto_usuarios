@@ -11,11 +11,12 @@
 
 
 <div class="form-group pull-left col-xs-3">
-    <input type="text" class="search form-control" placeholder="Usuario a buscar">
+    <input type="text" class="search form-control col-6" placeholder="Usuario a buscar">
 </div>
 <span class="counter pull-left col-xs-3"></span>
+<div class="col-6">
 <table class="table table-hover table-bordered results">
-  <thead>
+        <thead class="thead-dark">
     <tr>
       <th class="col-md-2 col-xs-2">DNI</th>
       <th class="col-md-3 col-xs-3">Nombre</th>
@@ -40,7 +41,7 @@
     {% endfor %}
 </tbody>
 </table>
-
+</div>
 
 
 <!-- {% if lista_ult_eventos %}

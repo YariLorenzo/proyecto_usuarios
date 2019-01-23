@@ -1,21 +1,21 @@
 {% extends 'votaciones/base.html' %}
 
-
-
 {% block content %}
+
 <div class="content container">
         <a class="btn btn-default pull-right" href="{% url 'usuario_edit' usuario_id=usuario.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <div class="row">
             <div class="col-md-3 ">
                  <div class="list-group ">
-                  <a href="#" class="list-group-item list-group-item-action active">Información</a>
-                  <a href="#" class="list-group-item list-group-item-action">Campañas</a>
+                    
+                  <a href="#" onclick="showonlyone('usuario-detalles');" class="list-group-item list-group-item-action active" data-toggle="list" >Información</a>
+                  <a href="#" onclick="showonlyone('usuario-votaciones');" class="list-group-item list-group-item-action" data-toggle="list">Campañas</a>
 
                 </div> 
             </div>
             <div class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
+                <div class="ficha">
+                    <div id = "usuario-detalles" class="card-body" style="display:block">
                         <div class="row">
                             <div class="col-md-12">
                                 <h4>Perfil</h4>
@@ -103,19 +103,68 @@
                         </div>
                         
                     </div>
+
+
+<!-- CAPA PARA VISTA DE VOTACIONES  -->
+                    <div id ="usuario-votaciones" class="card-body"  style="display:none">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <h4>Perfil2</h4>
+                              <hr>
+                              <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th>Fecha</th>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Participación</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for evento in lista_eventos %}
+                                  <tr>
+                                      <td>{{evento.fecha|date:"SHORT_DATE_FORMAT"}}</td>                                      
+                                      <td>{{evento.nombre}}</td>
+                                      <td>{{evento.get_categoria_display }}</td>
+                                      <td></td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                              <table class="table">
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Email</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>john@example.com</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Mary</td>
+                                    <td>Moe</td>
+                                    <td>mary@example.com</td>
+                                  </tr>
+                                  <tr>
+                                    <td>July</td>
+                                    <td>Dooley</td>
+                                    <td>july@example.com</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          </div>
+                        </div>
+                  </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-<!-- {% if lista_ult_eventos %}
-    <ul>
-    {% for evento in lista_ult_eventos %}
-        <li><a href="/votaciones/{{evento.id }}/">{{ evento }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay eventos disponibles.</p>
-{% endif %} -->
 
 {% endblock %}
