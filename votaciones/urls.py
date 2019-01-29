@@ -9,10 +9,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name='index'),
     # ex: /polls/5/
-    path('evento/<int:evento_id>/', views.detalle, name='detalle'),
+    path('evento/<int:evento_id>/', views.usuarios_envento, name='lista_eventos'),
 
 
-    # path('usuario/<slug:usuario_id>/', views.usuario, name='usuario'),
+    path('usuarios/', views.lista_usuarios, name='lista_usuarios'),
 
     path('usuario/<int:usuario_id>/', views.usuario_detail, name='usuario_detail'),
     path('usuario/new/', views.usuario_new, name='usuario_new'),

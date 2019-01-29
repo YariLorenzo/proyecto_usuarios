@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="content container">
-        <a class="btn btn-default pull-right" href="{% url 'usuario_edit' usuario_id=usuario.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <!-- <a class="btn btn-default pull-right" href="{% url 'usuario_edit' usuario_id=usuario.id %}"><span class="glyphicon glyphicon-pencil"></span></a> -->
         <div class="row">
             <div class="col-md-3 ">
                  <div class="list-group ">
@@ -109,7 +109,7 @@
                     <div id ="usuario-votaciones" class="card-body"  style="display:none">
                       <div class="row">
                           <div class="col-md-12">
-                              <h4>Perfil2</h4>
+                              <h4>Participación</h4>
                               <hr>
                               <table class="table">
                                 <thead class="thead-dark">
@@ -127,44 +127,16 @@
                                       <td>{{evento.fecha|date:"SHORT_DATE_FORMAT"}}</td>                                      
                                       <td>{{evento.nombre}}</td>
                                       <td>{{evento.get_categoria_display }}</td>
-                                      <td></td>
+                                      <td>{% if evento in lista_votaciones_usuario %}
+                                        <button type="button" class="btn btn-success">SÍ </button>
+                                        {% else %}
+                                        <button type="button" class="btn btn-danger">NO</button>
+                                        {% endif %}
+                                      </td>
                                   </tr>
                                   {% endfor %}
                                 </tbody>
                               </table>
-                              <table class="table">
-                                <thead class="thead-light">
-                                  <tr>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
-                                    <th>Email</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Mary</td>
-                                    <td>Moe</td>
-                                    <td>mary@example.com</td>
-                                  </tr>
-                                  <tr>
-                                    <td>July</td>
-                                    <td>Dooley</td>
-                                    <td>july@example.com</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                          </div>
-                        </div>
-                  </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
 
 {% endblock %}

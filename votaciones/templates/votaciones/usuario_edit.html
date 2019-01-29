@@ -1,11 +1,12 @@
 {% extends 'votaciones/base.html' %}
 
 {% block content %}
+
 <div class="content container">
         <div class="row">
             <div class="col-md-3 ">
                  <div class="list-group ">
-                  <a href="#" class="list-group-item list-group-item-action active">Información</a>
+                  <a href="#" onclick="showonlyone('usuario-detalles');" class="list-group-item list-group-item-action active" data-toggle="list" >Información</a>
                   <!-- <a href="#" class="list-group-item list-group-item-action">User Management</a>
                   <a href="#" class="list-group-item list-group-item-action">Used</a>
                   <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
@@ -23,14 +24,14 @@
                 </div> 
             </div>
             <div class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Perfil</h4>
-                                <hr>
-                            </div>
-                        </div>
+              <div class="ficha">
+                  <div id = "usuario-detalles" class="card-body" style="display:block">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <h4>Perfil</h4>
+                              <hr>
+                          </div>
+                      </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <form method="POST" class="post-form">{% csrf_token %}
@@ -58,12 +59,7 @@
                                         <input id="id_apellido2" type="text" name="apellido2" class="form-control here" value="{{usuario.apellido2}}" />
                                     </div>
                                   </div>
-                                  <div class="form-group row">
-                                        <label for="id_fecha_nac" class="col-4 col-form-label">Fecha Nacimiento</label> 
-                                        <div class="col-8">
-                                            <input id="id_fecha_nac" type="date" name="fecha_nac" class="form-control here" value="{{usuario.fecha_nac}}" />
-                                        </div>
-                                      </div>
+                                  
                                   <div class="form-group row">
                                     <label for="id_municipio" class="col-4 col-form-label">Municipio</label> 
                                     <div class="col-8">
@@ -76,7 +72,12 @@
                                       <input id="id_domicilio" type="text" name="domicilio" class="form-control here" value="{{usuario.domicilio}}" />
                                     </div>
                                   </div>
-
+                                  <div class="form-group row">
+                                      <label for="id_fecha_nac" class="col-4 col-form-label">Fecha Nacimiento</label> 
+                                      <div class="col-8">
+                                          <input id="id_fecha_nac" type="date" name="fecha_nac" class="form-control here" value="{{usuario.fecha_nac}}" />
+                                      </div>
+                                    </div>
                                   <div class="form-group row">
                                     <label for="email" class="col-4 col-form-label">Email</label> 
                                     <div class="col-8">
@@ -104,7 +105,8 @@
                                   <div class="form-group row">
                                     <div class="offset-4 col-8">
                                       <!-- <button type="submit" class="save btn btn-default">Guardar</button> -->
-                                      <input type="submit"  class="save btn btn-default" value = "Guardar"onclick="return confirm('¿Estás seguro?')" />
+                                      <input type="submit"  class="btn btn-primary" value = "Guardar" onclick="return confirm('¿Estás seguro?')" role="button" aria-pressed="true" />
+                                      <!-- <a type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro?')"  role="button" aria-pressed="true" >Modificar perfil</a> -->
                                     </div>
                                   </div>
                                 </form>

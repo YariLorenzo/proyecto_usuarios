@@ -12,16 +12,22 @@ from .forms import UsuarioForm
 def index(request):
     lista_ult_eventos = Evento.objects.order_by('-fecha')[:5]
     # contador_votos = Item.objects.filter(votes__contest=contestA).count()
-    template = loader.get_template('votaciones/index.html')
+    template = loader.get_template('votaciones/lista_eventos.html')
     context = {
         'lista_ult_eventos' : lista_ult_eventos,
     }
     return HttpResponse(template.render(context, request))
 
-def detalle(request, evento_id):
+def lista_usuarios(request):
+    lista_usuarios = Usuario.objects.all()
+    # contador_votos = Item.objects.filter(votes__contest=contestA).count()
+    return render(request, 'votaciones/lista_usuarios.html', {'lista_usuarios': lista_usuarios})
+
+
+def usuarios_envento(request, evento_id):
     evento = get_object_or_404(Evento, pk=evento_id)
     votantes = evento.votantes.all()
-    return render(request, 'votaciones/detalle.html', {'evento': evento,'votantes':votantes})
+    return render(request, 'votaciones/lista_usuarios_evento.html', {'evento': evento,'votantes':votantes})
 
 def usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, pk=usuario_id)
@@ -35,13 +41,17 @@ def usuario(request, usuario_id):
 def usuario_detail(request, usuario_id):
     
     usuario = get_object_or_404(Usuario, pk=usuario_id)
-    # lista_votaciones = Evento.objects.filter(votantes= usuario_id)
+    lista_votaciones_usuario = Evento.objects.filter(votantes= usuario_id)
     lista_eventos = Evento.objects.order_by('-fecha')
+    # eventos_comunes = set(lista_votaciones_usuario) & set(lista_eventos)
+    # print (eventos_comunes)
     print(usuario)
     print(lista_eventos)
     return render(request, 'votaciones/usuario_detail.html', {'usuario': usuario, 
-                                                            'lista_eventos': lista_eventos})
-    
+                                                            'lista_eventos': lista_eventos,
+                                                            'lista_votaciones_usuario': lista_votaciones_usuario})
+
+
 def usuario_new(request):
     if request.method == "POST":
         form = UsuarioForm(request.POST)
