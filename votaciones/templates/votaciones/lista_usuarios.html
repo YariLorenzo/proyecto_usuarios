@@ -1,7 +1,7 @@
 {% extends 'votaciones/base.html' %}
 {% block content %}
 <div class="content container">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-8">
             <h2>{{evento.nombre}}</h2>
         </div>
@@ -37,45 +37,51 @@
         </tr>
         {% endfor %}
     </tbody>
-    </table>
+    </table> -->
 
     <!-- EJEMPLO DE TABLA FILTRABLE -->
-    <i class="fas fa-filter"></i>
+
+    
+
     <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <h3 class="panel-title">Users</h3>
-                <div class="pull-right">
-                    <button class="btn btn-info btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                <h2 class="panel-title">Usuarios</h2>
+                <hr>
+                <div class="form-group pull-left col-xs-6">
+                    <input type="text" class="search form-control col-6" placeholder="Usuario a buscar">
+                </div>
+
+                <span class="counter pull-left col-xs-3"></span>
+
+                <div class="float-right">
+                    <button class="btn btn-danger btn-filter"><i class="fas fa-filter"></i></span> Filtrar</button>
                 </div>
             </div>
             <table class="table table-hover table-bordered results">
                 <thead class="thead-dark">
                     <tr class="filters">
-                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="First Name" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Last Name" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Username" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="DNI" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Nombre" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Apellido1" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Apellido2" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Municipio" disabled></th>
+                        <th>Ver</th>
                     </tr>
+                    <!-- <tr class="warning no-result">
+                        <td colspan="6"><i class="fa fa-warning"></i> No hay resultados</td>
+                    </tr> -->
                 </thead>
                 <tbody>
+                    {% for usuario in lista_usuarios %}
                     <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>{{usuario.dni}}</td>
+                        <td>{{usuario.nombre}}</td>
+                        <td>{{usuario.apellido1}}</td>
+                        <td>{{usuario.apellido2}}</td>
+                        <td>{{usuario.municipio}}</td>
+                        <td><a href="/votaciones/usuario/{{usuario.id}}/" class="btn btn-info" role="button">Detalle</a></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

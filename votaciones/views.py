@@ -10,6 +10,7 @@ from. models import Evento, Usuario
 from .forms import UsuarioForm
 
 def index(request):
+
     lista_ult_eventos = Evento.objects.order_by('-fecha')[:5]
     # contador_votos = Item.objects.filter(votes__contest=contestA).count()
     template = loader.get_template('votaciones/lista_eventos.html')

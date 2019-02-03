@@ -37,7 +37,13 @@ $(document).ready(function(){
         $filteredRows.hide();
         /* Prepend no-result row if all rows are filtered */
         if ($filteredRows.length === $rows.length) {
-            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No se han encontrado resultados</td></tr>'));
         }
+        var jobCount = $('.results tbody tr[visible="true"]').length;
+         $('.counter').text(jobCount + ' usuarios');
+  
+        if(jobCount == '0') {$('.no-result').show();}
+            else {$('.no-result').hide();}
     });
+
 });

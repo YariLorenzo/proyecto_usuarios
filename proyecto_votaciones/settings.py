@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jquery',
-    'fontawesome',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +132,6 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, "static"),
 # ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_REDIRECT_URL = '/votaciones/'
+LOGOUT_REDIRECT_URL = '/votaciones/login/'

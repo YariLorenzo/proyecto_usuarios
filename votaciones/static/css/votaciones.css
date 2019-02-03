@@ -37,6 +37,7 @@ body{
   }
 
 /* TABLA USUARIOS */
+
 .filterable {
   margin-top: 15px;
 }
@@ -52,13 +53,13 @@ body{
   height: auto;
 }
 .filterable .filters input[disabled]::-webkit-input-placeholder {
-  color: #333;
+  color: #ffffff;
 }
 .filterable .filters input[disabled]::-moz-placeholder {
-  color: #333;
+  color: #ffffff;
 }
 .filterable .filters input[disabled]:-ms-input-placeholder {
-  color: #333;
+  color:  #ffffff;
 }
 
 /* tr:nth-child(even) {background: rgb(255, 255, 255)}
