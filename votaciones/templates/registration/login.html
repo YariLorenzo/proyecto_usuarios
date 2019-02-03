@@ -1,8 +1,89 @@
-{% extends 'votaciones/base.html' %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestión de usuarios</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
-{% if form.errors %}
+<style type="text/css">
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<div class="login-form">
+    <form  method="post" action="">
+        {% csrf_token %}
+        <h2 class="text-center">Log in</h2>       
+        <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+                </table>
+        <div class="form-group">
+            <input type="submit" class="logBut btn btn-primary btn-block logBut" value="Log in">
+            <!-- <input type="submit" class="logBut" value="Log in"/> -->
+            <input type="hidden" name="next" value="{{ next }}"> 
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <!-- <form method="post" action="">
+            {% csrf_token %}
+            <h2 class="text-center">Log in</h2>    
+            <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            </table>
+            
+            <input type="submit" class="logBut btn btn-primary btn-block logBut" value="Log in"/>
+            <input type="hidden" name="next" value="{{ next }}">
+            </form> -->
+    <p class="text-center"><a href="#">Create an Account</a></p>
+</div>
+</body>
+</html>                                		                            
+
+
+<!-- {% if form.errors %}
 <p>Usuario y constraseña incorrectos. Por favor, inténtelo de nuevo.</p>
 {% endif %}
 
@@ -14,7 +95,7 @@
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
-
+<div class="container">
 <form method="post" action="">
 {% csrf_token %}
 <table>
@@ -32,6 +113,4 @@
 <input type="hidden" name="next" value="{{ next }}">
 </form>
 
-
-
-{% endblock %}
+</div> -->

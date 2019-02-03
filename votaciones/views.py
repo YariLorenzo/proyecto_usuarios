@@ -9,6 +9,7 @@ from django.contrib import messages
 from. models import Evento, Usuario
 from .forms import UsuarioForm
 
+@login_required
 def index(request):
 
     lista_ult_eventos = Evento.objects.order_by('-fecha')[:5]
@@ -18,13 +19,13 @@ def index(request):
         'lista_ult_eventos' : lista_ult_eventos,
     }
     return HttpResponse(template.render(context, request))
-
+@login_required
 def lista_usuarios(request):
     lista_usuarios = Usuario.objects.all()
     # contador_votos = Item.objects.filter(votes__contest=contestA).count()
     return render(request, 'votaciones/lista_usuarios.html', {'lista_usuarios': lista_usuarios})
 
-
+@login_required
 def usuarios_envento(request, evento_id):
     evento = get_object_or_404(Evento, pk=evento_id)
     votantes = evento.votantes.all()
