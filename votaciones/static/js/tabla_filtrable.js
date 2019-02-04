@@ -1,5 +1,13 @@
 
 $(document).ready(function(){
+
+    // $(function() {
+    //     $("#tablaUsuarios").dataTable({
+    //         "iDisplayLength": 10,
+    //         "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]]
+    //        });
+    //    });
+
     $('.filterable .btn-filter').click(function(){
         var $panel = $(this).parents('.filterable'),
         $filters = $panel.find('.filters input'),

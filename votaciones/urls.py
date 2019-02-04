@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-   
+   path('', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
     path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
     path('inicio/', views.index, name='index'),
     # path('login/', auth_views.LoginView.as_view(template_name='votaciones/login.html')),

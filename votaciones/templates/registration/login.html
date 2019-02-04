@@ -39,17 +39,35 @@
 <div class="login-form">
     <form  method="post" action="">
         {% csrf_token %}
-        <h2 class="text-center">Log in</h2>       
-        <table>
+        <h2 class="text-center">Iniciar sesión</h2>
+        {% if form.errors %}
+            <p>Usuario y constraseña incorrectos. Por favor, inténtelo de nuevo.</p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+            {% else %}
+            <p>Please login to see this page.</p>
+            {% endif %}
+        {% endif %}       
+        <table >
                 <tr>
-                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username.label_tag }}</td>    
+                </tr>
+                <tr>      
                     <td>{{ form.username }}</td>
                 </tr>
                 <tr>
                     <td>{{ form.password.label_tag }}</td>
+                </tr>
+                <tr>
                     <td>{{ form.password }}</td>
                 </tr>
+                
                 </table>
+                <p></p>
         <div class="form-group">
             <input type="submit" class="logBut btn btn-primary btn-block logBut" value="Log in">
             <!-- <input type="submit" class="logBut" value="Log in"/> -->

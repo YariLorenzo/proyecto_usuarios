@@ -7,6 +7,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Acme|Merriweather" rel="stylesheet"> 
+
+    <!-- gestión de tablas -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script> -->
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="{% static 'css/votaciones.css' %}">
@@ -56,12 +60,7 @@
         {% endif %}
     </div>
     
-<script>
-$('.navbar-nav .nav-link').click(function(){
-    $('.navbar-nav .nav-link').removeClass('active');
-    $(this).addClass('active');
-})
-</script>
+
 
 
     {% block content %}{% endblock content %}
