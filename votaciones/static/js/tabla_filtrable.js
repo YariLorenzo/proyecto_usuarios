@@ -1,13 +1,14 @@
 
 $(document).ready(function(){
-
+    // // console.log("yesca!");
     // $(function() {
+    //     window.alert("yesca!");
     //     $("#tablaUsuarios").dataTable({
     //         "iDisplayLength": 10,
     //         "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]]
     //        });
     //    });
-
+    
     $('.filterable .btn-filter').click(function(){
         var $panel = $(this).parents('.filterable'),
         $filters = $panel.find('.filters input'),
@@ -24,6 +25,7 @@ $(document).ready(function(){
 
     $('.filterable .filters input').keyup(function(e){
         /* Ignore tab key */
+        console.log("yesca!");
         var code = e.keyCode || e.which;
         if (code == '9') return;
         /* Useful DOM data and selectors */
