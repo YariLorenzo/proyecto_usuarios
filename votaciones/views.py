@@ -104,6 +104,7 @@ def lista_eventos(request):
     return HttpResponse(template.render(context, request))
 
 # ------------------ GRAFICOS ------------------------------------------------
+
 class ColorsView(TemplateView):
     template_name = 'votaciones/colors.html'
 
