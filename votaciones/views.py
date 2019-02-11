@@ -121,13 +121,16 @@ class ChartMixin(object):
 
     def get_labels(self):
         """Return 7 labels."""
-        return ["January", "February", "March", "April", "May", "June", "July"]
+        # return ["January", "February", "March", "April", "May", "June", "July"]
+        horas=["8-9","9-10","10-11","11-12","12-13","13-14","14-15","16-17","17-18","18-19"]
+        # horas = [(n, "%d %s" % (n % 12 or 12, ["AM", "PM"][n > 11])) for n in range(24)]
+        return horas
 
     def get_data(self):
         """Return 3 random dataset to plot."""
         def data():
             """Return 7 randint between 0 and 100."""
-            return [randint(0, 100) for x in range(7)]
+            return [randint(0, 100) for x in range(10)]
 
         return [data() for x in range(3)]
 
@@ -176,7 +179,7 @@ class DonutHighChartJSONView(ChartMixin, HighChartDonutView):
 # Pre-configured views.
 colors = ColorsView.as_view()
 
-column_highchart_json = ColumnHighChartJSONView.as_view()
+# column_highchart_json = ColumnHighChartJSONView.as_view(template_name='votaciones/grafico.html')
 line_chart = TemplateView.as_view(template_name='votaciones/grafico.html')
 line_chart_json = LineChartJSONView.as_view()
 line_highchart_json = LineHighChartJSONView.as_view()

@@ -25,7 +25,6 @@ $(document).ready(function(){
 
     $('.filterable .filters input').keyup(function(e){
         /* Ignore tab key */
-        console.log("yesca!");
         var code = e.keyCode || e.which;
         if (code == '9') return;
         /* Useful DOM data and selectors */
